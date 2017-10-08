@@ -8,7 +8,7 @@
 int _realloc_buffer(Stack* stack);
 
 Stack* create_stack() {
-    Stack* stack = malloc(sizeof(stack));
+    Stack* stack = malloc(sizeof(Stack));
     if (!stack) {
         fprintf(stderr, "Memory allocation error while creating stack.");
         return NULL;
