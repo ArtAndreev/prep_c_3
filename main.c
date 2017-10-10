@@ -10,10 +10,10 @@ enum {
 
 int open_file_for_checking(int argc, char** argv);
 int check_brackets(FILE* file);
-int is_bracket(char symbol);
+_Bool is_bracket(char symbol);
 int bracket_step(Stack* brackets_stack, char symbol);
-int is_opening_bracket(char symbol);
-int is_one_brackets_type(char first, char second);
+_Bool is_opening_bracket(char symbol);
+_Bool is_one_brackets_type(char first, char second);
 
 //
 // Program receives one file name. In this file there is one text string.
@@ -80,7 +80,7 @@ int check_brackets(FILE* file) {
     return SUCCESS;
 }
 
-int is_bracket(char symbol) {
+_Bool is_bracket(char symbol) {
     return symbol == '(' || symbol == '{' || symbol == '[' ||
            symbol == ')' || symbol == '}' || symbol == ']';
 }
@@ -106,11 +106,11 @@ int bracket_step(Stack* brackets_stack, char symbol) {
     return SUCCESS;
 }
 
-int is_opening_bracket(char symbol) {
+_Bool is_opening_bracket(char symbol) {
     return symbol == '(' || symbol == '{' || symbol == '[';
 }
 
-int is_one_brackets_type(char first, char second) {
+_Bool is_one_brackets_type(char first, char second) {
     if ((first == '(' || first == ')') && (second == '(' || second == ')'))
         return 1;
     if ((first == '{' || first == '}') && (second == '{' || second == '}'))

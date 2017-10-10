@@ -72,7 +72,7 @@ size_t stack_get_size(const Stack* stack) {
     return stack->count;
 }
 
-int stack_is_empty(const Stack* stack) {
+_Bool stack_is_empty(const Stack* stack) {
     if (!stack) {
         fprintf(stderr, "Stack is not allocated.");
         return 0;

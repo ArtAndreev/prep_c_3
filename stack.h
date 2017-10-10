@@ -20,7 +20,7 @@ int stack_push(Stack* stack, char symbol);
 char stack_top(const Stack* stack);
 int stack_pop(Stack* stack);
 size_t stack_get_size(const Stack* stack);
-int stack_is_empty(const Stack* stack);
+_Bool stack_is_empty(const Stack* stack);
 int free_stack(Stack* stack);
 
 #endif //C_TASK3_STACK_H
