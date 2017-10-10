@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <memory.h>
 
 #include "stack.h"
 
@@ -44,7 +43,7 @@ int stack_push(Stack* stack, char symbol) {
     return STACK_SUCCESS;
 }
 
-char stack_top(Stack* stack) {
+char stack_top(const Stack* stack) {
     if (!stack) {
         fprintf(stderr, "Stack is not allocated.");
         return 0;
@@ -64,7 +63,7 @@ int stack_pop(Stack* stack) {
     return STACK_SUCCESS;
 }
 
-size_t stack_get_size(Stack* stack) {
+size_t stack_get_size(const Stack* stack) {
     if (!stack) {
         fprintf(stderr, "Stack is not allocated.");
         return 0;
@@ -73,7 +72,7 @@ size_t stack_get_size(Stack* stack) {
     return stack->count;
 }
 
-int stack_is_empty(Stack* stack) {
+int stack_is_empty(const Stack* stack) {
     if (!stack) {
         fprintf(stderr, "Stack is not allocated.");
         return 0;
