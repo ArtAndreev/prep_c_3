@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "stack.h"
 
@@ -44,6 +43,7 @@ int open_file_for_checking(int argc, char** argv) {
     int error_num = SUCCESS;
 
     if ((error_num = check_brackets(file))) {
+        fclose(file);
         return error_num;
     }
 
@@ -102,7 +102,7 @@ int bracket_step(Stack* brackets_stack, char symbol) {
         else
             return CHECK_INTERRUPTED;
     }
-    
+
     return SUCCESS;
 }
 
@@ -119,6 +119,3 @@ int is_one_brackets_type(char first, char second) {
         return 1;
     return 0;
 }
-
-
-
