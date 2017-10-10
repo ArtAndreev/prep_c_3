@@ -48,6 +48,10 @@ char stack_top(const Stack* stack) {
         fprintf(stderr, "Stack is not allocated.");
         return 0;
     }
+    if (!stack->count) {
+        fprintf(stderr, "Stack is empty.");
+        return 0;
+    }
 
     return stack->buffer[stack->count - 1];
 }
@@ -55,6 +59,10 @@ char stack_top(const Stack* stack) {
 int stack_pop(Stack* stack) {
     if (!stack) {
         fprintf(stderr, "Stack is not allocated.");
+        return STACK_WRONG_ARGUMENT;
+    }
+    if (!stack->count) {
+        fprintf(stderr, "Stack is empty.");
         return STACK_WRONG_ARGUMENT;
     }
 
